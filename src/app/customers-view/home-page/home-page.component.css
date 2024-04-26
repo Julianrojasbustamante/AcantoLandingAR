@@ -1,13 +1,48 @@
+.contact-us-button {
+  border-radius: 6px;
+  background: #D50C1D;
+  color: #fff;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 12px;
+  font-size: 15px;
+  text-decoration: none;
+  i {
+    font-size: 20px;
+  }
+}
+
+.contact-us-button:hover {
+  background: rgba(213, 12, 29, 0.92);
+}
+
+
+.blur {
+  background: rgba(0, 0, 0, 0.53);
+}
+
+.banner-img {
+  background-image: url('src/assets/img/banner.jpg');
+}
+
+.banner {
+  height: 500px;
+}
+
 .banner-text {
-  background: rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
   padding: 15px;
   font-weight: 300;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-size: 15px;
   .text {
+    max-width: 50%;
     .title {
-      font-size: 22px;
+      font-size: 28px;
       font-weight: 600;
     }
   }
@@ -57,11 +92,20 @@
   border: 0;
 }
 
+.vis-tag {
+  background: #D50C1D;
+  font-weight: 600;
+  line-height: 1.5;
+  color: white;
+  width: 100px;
+  padding: 10px 20px;
+}
+
 .red-title-box {
   background: #D50C1D;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.5;
   color: white;
   border-radius: 4px;
@@ -139,5 +183,21 @@
     .title {
       font-size: 18px;
     }
+  }
+
+  .banner {
+    height: 450px;
+  }
+
+  .banner-text {
+    font-size: 15px;
+    .text {
+      max-width: 100%;
+      .title {
+        font-size: 22px;
+        font-weight: 600;
+      }
+    }
+    line-height: 1.5;
   }
 }
