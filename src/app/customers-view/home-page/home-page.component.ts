@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, QueryList, HostListener,  ViewChildren } from '@angular/core';
 import {Benefit} from "../models/benefit";
 import {BenefitIcon} from "../models/benefit-icon";
 import {Person} from "../models/person";
@@ -10,6 +10,60 @@ import Swal from "sweetalert2";
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+  @ViewChildren('animatedElementLeft') animatedElementsLeft!: QueryList<ElementRef>;
+  @ViewChildren('animatedElementRight') animatedElementsRight!: QueryList<ElementRef>;
+  @ViewChild('focusContent') focusContentElement!: ElementRef;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.focusContentAnimation();
+    this.activateAnimationRight();
+    this.activateAnimationLeft();
+  }
+
+  focusContentAnimation() {
+    const element = this.focusContentElement.nativeElement;
+    const elementOffset = element.offsetTop;
+    const windowHeight = window.innerHeight;
+    const scrollPosition = window.scrollY;
+
+    if (scrollPosition > elementOffset - windowHeight * 0.8) {
+      element.classList.add('activate-animation');
+    } else {
+      element.classList.remove('activate-animation');
+    }
+  }
+
+  activateAnimationLeft() {
+    const windowHeight = window.innerHeight;
+    const scrollPosition = window.scrollY;
+
+    this.animatedElementsLeft.forEach(element => {
+      const elementOffset = element.nativeElement.getBoundingClientRect().top;
+
+      if (scrollPosition > elementOffset - windowHeight * 0.8) {
+        element.nativeElement.classList.add('activate-animation');
+      } else {
+        element.nativeElement.classList.remove('activate-animation');
+      }
+    });
+  }
+
+  activateAnimationRight() {
+    const windowHeight = window.innerHeight;
+    const scrollPosition = window.scrollY;
+
+    this.animatedElementsRight.forEach(element => {
+      const elementOffset = element.nativeElement.getBoundingClientRect().top;
+
+      if (scrollPosition > elementOffset - windowHeight * 0.8) {
+        element.nativeElement.classList.add('activate-animation');
+      } else {
+        element.nativeElement.classList.remove('activate-animation');
+      }
+    });
+  }
+
   benefits:Benefit[] = [
     {
       title: "Zona de juegos infantiles al aire libre en terraza",

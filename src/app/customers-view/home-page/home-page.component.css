@@ -18,6 +18,8 @@
 
 .contact-us-button:hover {
   background: rgba(213, 12, 29, 0.92);
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 
 
@@ -101,7 +103,16 @@
   padding: 10px 20px;
 }
 
+.right-animation {
+  transform: translateX(50px);
+}
+
+.left-animation {
+  transform: translateX(-50px);
+}
+
 .red-title-box {
+  opacity: 0;
   background: #D50C1D;
   text-transform: uppercase;
   font-weight: 600;
@@ -109,6 +120,27 @@
   line-height: 1.5;
   color: white;
   border-radius: 4px;
+}
+
+.activate-animation {
+  opacity: 1;
+  transform: translateX(0); /* Cambio a translateX para la dirección de la animación */
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.activate-animation-left {
+  opacity: 1;
+  transform: translateX(0); /* Cambio a translateX para la dirección de la animación */
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.element-to-animate {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.activate-animation {
+  opacity: 1;
 }
 
 .image-benefits {
@@ -168,6 +200,7 @@
 
   .red-title-box {
     font-size: 18px;
+    transform: translateX(10px);
   }
 
   .text-benefits {
@@ -199,5 +232,13 @@
       }
     }
     line-height: 1.5;
+  }
+
+  .left-animation {
+    transform: translateX(-5px);
+  }
+
+  .right-animation {
+    transform: translateX(5px);
   }
 }

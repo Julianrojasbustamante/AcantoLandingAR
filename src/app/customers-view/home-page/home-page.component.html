@@ -18,18 +18,19 @@
     </div>
   </div>
   <div id="home" class="container my-3">
-    <div class="col-xs-12 col-lg-10 red-title-box py-1 px-3">
+    <div class="col-xs-12 col-lg-10 red-title-box py-1 px-3"
+         #animatedElementRight>
       Vive el lujo en Acanto 2:<br>
       comodidades que superan tus expectativas
     </div>
     <div *ngFor="let benefit of benefits; let i = index" class="row my-3">
       <ng-container *ngIf="i % 2 === 0; else evenRow">
         <div class="col-xs-12 col-md-7">
-          <img class="image-benefits rounded-1"
+          <img class="image-benefits rounded-1 left-animation" #animatedElementLeft
                [src]="'assets/img/benefits/' + benefit.picture"
                [alt]="benefit.title">
         </div>
-        <div class="col-xs-12 col-md-5 py-2 py-lg-5">
+        <div class="col-xs-12 col-md-5 py-2 py-lg-5 right-animation" #animatedElementRight>
           <div class="text-benefits">
             {{ benefit.title }}
           </div>
@@ -39,8 +40,9 @@
         </div>
       </ng-container>
       <ng-template #evenRow>
-        <div class="d-none d-md-block col-xs-12 col-md-5 py-2 py-lg-5">
-          <div class="text-benefits">
+        <div class="d-none d-md-block col-xs-12 col-md-5 py-2 py-lg-5 left-animation"
+             #animatedElementLeft>
+          <div class="text-benefits" >
             {{ benefit.title }}
           </div>
           <p class="fw-normal">
@@ -48,7 +50,7 @@
           </p>
         </div>
         <div class="col-xs-12 col-md-7">
-          <img class="image-benefits rounded-1"
+          <img class="image-benefits rounded-1 right-animation" #animatedElementRight
                [src]="'assets/img/benefits/' + benefit.picture"
                [alt]="benefit.title">
         </div>
@@ -63,7 +65,8 @@
       </ng-template>
     </div>
     <div class="d-flex flex-row-reverse">
-      <div class="col-xs-12 col-lg-10 red-title-box py-1 px-3 text-end">
+      <div class="col-xs-12 col-lg-10 red-title-box py-1 px-3 text-end left-animation"
+           #animatedElementLeft>
         Sumérgete en la experiencia Acanto 2:<br>
         donde la calidad y el bienestar se encuentran.
       </div>
@@ -89,11 +92,12 @@
       <span>Adéntrate en la experiencia:</span>
       descubre el apartamento modelo de Acanto 2, tu nuevo hogar
     </div>
-    <div class="house-tour rounded-2">
+    <div class="house-tour rounded-2 element-to-animate" #focusContent>
       <div class="card bg-white text-white my-3" *ngFor="let housePlace of houseTour; let i = index">
         <img class="card-img" [src]="'assets/img/house-tour/'+housePlace.picture" [alt]="housePlace.title">
         <div class="card-img-overlay" [ngClass]="{'d-flex justify-content-end align-items-start': i % 2 === 0}">
-          <div class="card-title col-6 house-tour-img-text mx-0 d-none d-md-block ">
+          <div class="card-title col-6 house-tour-img-text mx-0 d-none d-md-block right-animation"
+               #animatedElementRight>
             <div class="title">{{ housePlace.title }}</div>
             {{ housePlace.description }}
           </div>
@@ -161,6 +165,6 @@
   <a target="_blank"
      href="https://api.whatsapp.com/send/?phone=573222726310&text=Me+interesa+conocer+informaci%C3%B3n+sobre+RESERVA+DE+MOSQUERA+ACANTO+2+VIS+ETAPA+1a"
      class="contact-us-button">
-    Contactanos <i class="fab fa-whatsapp"></i>
+    Contáctanos <i class="fab fa-whatsapp"></i>
   </a>
 </div>
